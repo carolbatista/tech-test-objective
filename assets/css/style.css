@@ -147,7 +147,7 @@ body {
   background: url(../imgs/search.svg) no-repeat #FFF;
   float: right;
   margin: 8px 15px 0 0;
-  border-radius: 5px;
+  border: 0;
 }
 @media screen and (max-width: 1024px) {
   .container-top {
@@ -194,19 +194,29 @@ body {
   margin-bottom: 9px;
 }
 .container-hero .hero-list {
-  align-items: center;
   height: 58px;
   background-color: #FFF;
   font: 14px "pt-sans", sans-serif;
   color: #555;
-  padding: 15px 0;
+  padding: 20px 0 12px 0;
   display: flex;
   margin-bottom: 8px;
   box-shadow: 0px 0px 5px #00000033;
   border-radius: 4px;
+  flex-direction: column;
 }
 .container-hero .hero-list:hover {
   box-shadow: 0px 0px 5px #00000099;
+}
+.container-hero .hero-list-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.container-hero .hero-list-container .hero-photo img {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
 }
 .container-hero .hero,
 .container-hero .hero-series,
@@ -226,6 +236,13 @@ body {
 .container-hero .hero-series,
 .container-hero .hero-events {
   flex-direction: column;
+}
+.container-hero .hero-completed {
+  display: none;
+  margin: 10px 0;
+}
+.container-hero .hero-completed h4 {
+  font: 16px "pt-sans-bold", sans-serif;
 }
 @media screen and (max-width: 1024px) {
   .container-hero {
@@ -278,6 +295,9 @@ body {
   display: flex;
   align-items: center;
 }
+.footer .pagination span {
+  display: flex;
+}
 .footer .pagination a {
   color: #555;
   background-color: #F5F5F5;
@@ -292,20 +312,22 @@ body {
   border-radius: 4px;
   border: #E5E5E5 1px solid;
   transition: background-color 0.3s;
+  cursor: pointer;
 }
 .footer .nav-right, .footer .nav-left {
   font-size: 20px !important;
   border: none !important;
   background-color: #fff !important;
 }
-.footer .pagination a.active {
+.footer .pagination span a.active {
   background-color: #167ABC;
   border: #167ABC 1px solid;
   border-radius: 4px #167ABC;
   color: #F5F5F5;
 }
-.footer .pagination a:hover:not(.active) {
+.footer .pagination span a:hover:not(.active) {
   background-color: #52ace6;
+  color: #FFF;
 }
 @media screen and (max-width: 1024px) {
   .footer {
@@ -324,7 +346,7 @@ body {
   }
 }
 @media screen and (max-width: 1024px) {
-  .footer .pagination a {
+  .footer .pagination span a {
     margin-right: 6px;
     width: 26px;
     height: 29px;
