@@ -1,0 +1,32 @@
+/*
+ * Breakpoints para Responsivo
+ */
+@mixin breakpoint($point){
+	@if $point == tablet {
+		@media screen and (max-width: 1024px){ 
+			@content;
+		}
+	}
+	@else if $point == phablet {
+		@media screen and (max-width: 768px){
+			@content;
+		}
+	}
+	@else if $point == mobile {
+		@media screen and (max-width: 400px){
+			@content;
+		}
+	}
+}
+
+/*
+ * Gerando o font-face no projeto
+ */
+ @mixin fontFace($name, $style, $weight, $file){
+    @font-face {
+        font-family: $name;
+        font-style: $style;
+        font-weight: $weight;
+        src: url($file) format('woff');
+    }
+}

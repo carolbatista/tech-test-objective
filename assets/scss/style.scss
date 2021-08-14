@@ -1,20 +1,21 @@
-$dark-gray: #555;
-$light-gray: #E5E5E5;
-$font-family: 'Roboto', Sans-serif, Helvetica;
+$snow: #F5F5F5;
+$dark-snow: #E5E5E5;
+$dark-smoke: #555;
+$smoke:#8E8E8E;
+$dark-blue: #167ABC;
+$font-pt-sans: 'pt-sans', sans-serif;
+$font-pt-sans-italic: 'pt-sans-italic', sans-serif;
+$font-pt-sans-bold: 'pt-sans-bold', sans-serif;
+$font-pt-sans-caption: 'pt-sans-Caption', sans-serif;
+$font-pt-sans-caption-bold:'pt-sans-caption-bold', sans-serif;
 
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: normal;
-    src: url(../fonts/Roboto-Regular.woff) format('woff');
-}
+@import 'functions.scss';
 
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    src: url(../fonts/Roboto-Bold.woff) format('woff');
-}
+@include fontFace('pt-sans-bold', 'normal', 400, '../fonts/PTSans-Bold.woff');
+@include fontFace('pt-sans-italic', 'italic', 400, '../fonts/PTSans-Italic.woff');
+@include fontFace('pt-sans', 'normal', 400, '../fonts/PTSans-Regular.woff');
+@include fontFace('pt-sans-caption', 'normal', 400, '../fonts/PTSansCaption-Regular.woff');
+@include fontFace('pt-sans-caption-bold', 'normal', 300, '../fonts/PTSansCaption-Bold.woff');
 
 * {
     margin: 0;
@@ -22,96 +23,118 @@ $font-family: 'Roboto', Sans-serif, Helvetica;
 }
 
 body {
-    background-color: $light-gray;
+    background-color: $dark-snow;
+
+    @include breakpoint('tablet'){
+        width: 100%;
+    }
 }
 
 .header {
     background: #fff;
-    height: 50px;
-    border: 1px solid $light-gray;
-    padding: 10px;
+    height: 44px;
+    padding: 10px 24px;
     display: flex;
+    align-items: center;
 
     .logo {
-        width: 15%;
-        height: fit-content;
-        margin-top: 6px;
+       display: flex;
     }
 
     .info-test {
-        width: 80%;
-        height: max-content;
-        flex-direction: row-reverse;
-        text-align: right;
-        font: 16px $font-family bold;
-        margin: 14px 15px 0 0;
+        justify-content: flex-end;
+        font: 14px $font-pt-sans-caption;
+        display: flex;
+        flex: 1;
+        color: $dark-smoke;
+        margin-right: 16px;
+        
+        br {
+            display: none;
+        }
 
         span {
+            font-family: $font-pt-sans-caption-bold;
             font-weight: bold;
-        }
+        } 
     }
 
     .icon-cb {
-        width: 25px;
-        height: 25px;
-        font: 16px $font-family bold;
+        width: 32px;
+        height: 32px;
         border-radius: 5px;
-        background-color: $light-gray;
-        color: $dark-gray;
+        background-color: $dark-snow;
         display: flex;
-        margin-top: 10px;
         align-items: center;
         justify-content: center;
+
+        p {
+            font-size: 15px;
+            font-family: $font-pt-sans-caption-bold;
+            color: $dark-smoke;
+        }
         
-        :hover {
-            width: 25px;
-            height: 25px;
-            border-radius: 5px;
-            background-color: $dark-gray;
-            color: $light-gray;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        &:hover {
+            background-color: $dark-smoke;
+            
+            p {
+                color: $dark-snow;
+            }
+        }
+    }
+
+    @include breakpoint('tablet') {
+        .info-test {
+            font-size: 12px;
+            text-align: right;
+
+            br {
+                display: block;
+            }     
         }
     }
 }
 
 .container-top {
-    width: 1200px;
+    width: 1140px;
     margin: 0 auto;
-    margin-bottom: 70px;
-    padding-top: 35px;
-    font-family: $font-family;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    font-family: $font-pt-sans-caption-bold;
 
     h1 {
-        color: $dark-gray;
+        color: $dark-smoke;
         font-size: 32px;
-        margin-bottom: 15px;
+        margin-bottom: 16px;
     }
 
     h2 {
-        color: $dark-gray;
+        color: $dark-smoke;
         font-size: 16px;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
     }
 
     .form-search {
-        width: 280px;
-        height: 25px;
-        float: left;
+        width: 295px;
+        height: 32px;
         background-color: #fff;
         border-radius: 5px;
         
         .search {
-            width: 260px;
+            width: 245px;
             height: 25px;
             float: left;
-            font-style: italic;
+            font: 14px $font-pt-sans-italic ;
             outline: none;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             text-indent: 10px;
-            color: $dark-gray;
+            color: $smoke;
+            margin: 2px 0 0 5px;
+
+            &::placeholder {
+                color: $smoke;
+            }
         }
 
         .icon-search {
@@ -119,41 +142,67 @@ body {
             height: 22px;
             background: url(../imgs/search.svg) no-repeat #FFF;
             float: right;
-            margin-top: 3px;
+            margin: 8px 15px 0 0;
             border-radius: 5px;
         }
     }
+
+    @include breakpoint('tablet') {
+        width: 100vw;
+        margin-top: 24px;
+        margin-bottom: 32px;
+
+        h1 { 
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            color: $dark-smoke;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .form-search {
+            width: 85%;
+            display: block;
+            margin: 0 auto;
+
+            .search { 
+                width: 80%;
+            } 
+        }
+    } 
 }
+
 .container-hero {
-    width: 1200px;
+    width: 1140px;
     margin: 0 auto;
-    padding-top: 40px;
-    font-family: $font-family;
+    font-family: $font-pt-sans;
     margin-bottom: 8px;
 
     .title-areas {
-        width: 100%;
-        height: 25px;
-        font-size: 12px;
-        color: #8E8E8E;
-        margin-left: 10px;
-
-        :first-child { 
-            margin-left: 0;
-        }
+        display: flex;
+        flex-direction: row;
 
         span {
-            margin-left: 330px;
+            display: flex;
+            flex: 1;
+            color: $smoke;
+            font-size: 12px;
+            margin-left: 24px;
+            margin-bottom: 9px;
         }
     }
 
     .hero-list {
-        height: 50px;
-        width: 98%;
+        align-items: center;
+        height: 58px;
         background-color: #FFF;
-        font: 13px $font-family;
-        color: $dark-gray;
-        padding: 15px 1%;
+        font: 14px $font-pt-sans;
+        color: $dark-smoke;
+        padding: 15px 0;
         display: flex;
         margin-bottom: 8px;
         box-shadow: 0px 0px 5px #00000033;
@@ -163,6 +212,14 @@ body {
             box-shadow: 0px 0px 5px #00000099;
         }
     }
+
+    .hero,
+    .hero-series,
+    .hero-events {
+        display: flex;
+        flex: 1;
+        margin-left: 24px;
+    }
     
     .hero-name {
         margin-left: 25px;
@@ -170,35 +227,133 @@ body {
         justify-content: center;
         align-items: center;
         align-content: center;
-        font-weight: bold;
+        font: 16px $font-pt-sans-bold;
     }
 
-    .hero-series {
-        margin-left: 247px;
-    }
-
+    .hero-series,
     .hero-events {
-        margin-left: 80px;
+        flex-direction: column;
+    }
+
+    @include breakpoint('tablet') {
+        width: 85%;
+        margin: 0 auto;
+        margin-bottom: 8px;
+        
+        .title-areas {
+            
+            span {
+                margin-left: 86px;
+
+                &:nth-child(2),
+                &:nth-child(3) {
+                    display: none;
+                }
+            }
+        }
+
+        .hero,
+        .hero-series,
+        .hero-events {
+            margin-left: 0;
+        }
+        
+        .hero-list {
+            padding: 12px 16px;
+            height: auto;
+        }
+
+        .hero-name {
+            margin-left: 24px;
+            font-size: 14px;
+        }
+
+        .hero-series,
+        .hero-events {
+            display: none;
+        }
     }
 }
 
 .footer {
     background: #fff;
     display: flex;
-    width: 100%;
-    height: 60px;
-    border: 1px solid $light-gray;
-    padding: 10px;
+    width: 98%;
+    height: 70px;
+    border-top: 1px solid $dark-snow;
+    padding: 1%;
     bottom: 0;
     position: fixed;
-}
-
-/**  -- Responsivo --  **/
-
-@media screen and (max-width: 768px) {
-
-    .header{
-
+    justify-content: center;
+    
+    .nav-left,
+    .nav-right {
+        width: 38px;
+        height: 30px;
     }
 
+    .pagination {
+        display: flex;
+        align-items: center;
+    }
+
+    .pagination a {
+        color: $dark-smoke;
+        background-color: $snow;
+        margin-right: 16px;
+        width: 38px;
+        height: 30px;
+        font: 14px $font-pt-sans;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        text-decoration: none;
+        border-radius: 4px;
+        border: $dark-snow 1px solid;
+        transition: background-color .3s;
+    }
+
+    .nav-right, .nav-left {
+        font-size: 20px !important;
+        border: none !important;
+        background-color: #fff !important;
+    }
+
+    .pagination a.active {
+        background-color: $dark-blue;
+        border: $dark-blue 1px solid;
+        border-radius: 4px $dark-blue;
+        color: $snow;
+    }
+    
+    .pagination a:hover:not(.active) { 
+        background-color: #52ace6;
+    }
+        
+    @include breakpoint('tablet') {
+        background-color: #fff;
+        display: flex;
+        width: 100%;
+        height: 59px;
+        padding: 10px 0;
+        bottom: 0;
+
+        @media screen and (max-height: 570px){
+            margin-top: 24px;
+            position: relative;
+		}
+
+        .pagination a {
+            margin-right: 6px;
+            width: 26px;
+            height: 29px;
+        }
+    
+        .nav-right, .nav-left {
+            font-size: 14px !important;
+            border: none !important;
+            background-color: #fff !important;
+        }
+         
+    }
 }
