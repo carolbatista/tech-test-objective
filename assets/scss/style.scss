@@ -3,6 +3,8 @@ $dark-snow: #E5E5E5;
 $dark-smoke: #555;
 $smoke:#8E8E8E;
 $dark-blue: #167ABC;
+$blue: #5DAFFF;
+$white: #FFF;
 $font-pt-sans: 'pt-sans', sans-serif;
 $font-pt-sans-italic: 'pt-sans-italic', sans-serif;
 $font-pt-sans-bold: 'pt-sans-bold', sans-serif;
@@ -31,7 +33,7 @@ body {
 }
 
 .header {
-    background: #fff;
+    background: $white;
     height: 44px;
     padding: 10px 24px;
     display: flex;
@@ -117,7 +119,7 @@ body {
     .form-search {
         width: 295px;
         height: 32px;
-        background-color: #fff;
+        background-color: $white;
         border-radius: 5px;
         
         .search {
@@ -140,7 +142,7 @@ body {
         .icon-search {
             width: 20px;
             height: 22px;
-            background: url(../imgs/search.svg) no-repeat #FFF;
+            background: url(../imgs/search.svg) no-repeat $white;
             float: right;
             margin: 8px 15px 0 0;
             border: 0;
@@ -198,7 +200,7 @@ body {
 
     .hero-list {
         height: 58px;
-        background-color: #FFF;
+        background-color: $white;
         font: 14px $font-pt-sans;
         color: $dark-smoke;
         padding: 20px 0 12px 0;
@@ -211,6 +213,10 @@ body {
         &:hover {
             box-shadow: 0px 0px 5px #00000099;
         }
+    }
+
+    .hero-list-open {
+        height: auto;  
     }
 
     .hero-list-container {
@@ -248,11 +254,23 @@ body {
     }
 
     .hero-completed {
-        display: none;
+        display: flex;
         margin: 10px 0;
 
         h4 {
             font: 16px $font-pt-sans-bold;
+        }
+    }
+    .button-back{
+        width: 63px;
+        height: 30px;
+        border-radius: 4px;
+        background-color: $blue;
+        color: $snow;
+        border:none;
+
+        &:hover {
+            box-shadow: 0px 0px 5px #00000099;
         }
     }
 
@@ -297,7 +315,7 @@ body {
 }
 
 .footer {
-    background: #fff;
+    background: $white;
     display: flex;
     width: 98%;
     height: 70px;
@@ -342,7 +360,7 @@ body {
     .nav-right, .nav-left {
         font-size: 20px !important;
         border: none !important;
-        background-color: #fff !important;
+        background-color: $white !important;
     }
 
     .pagination span a.active {
@@ -353,12 +371,12 @@ body {
     }
     
     .pagination span a:hover:not(.active) { 
-        background-color: #52ace6;
-        color: #FFF;
+        background-color: $blue;
+        color: $white;
     }
         
     @include breakpoint('tablet') {
-        background-color: #fff;
+        background-color: $white;
         display: flex;
         width: 100%;
         height: 59px;
@@ -370,7 +388,7 @@ body {
             position: relative;
 		}
 
-        .pagination span a {
+        .pagination a {
             margin-right: 6px;
             width: 26px;
             height: 29px;
@@ -379,7 +397,7 @@ body {
         .nav-right, .nav-left {
             font-size: 14px !important;
             border: none !important;
-            background-color: #fff !important;
+            background-color: $white !important;
         }
          
     }

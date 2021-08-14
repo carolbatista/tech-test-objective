@@ -48,7 +48,7 @@ fetch('https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=20
 
     formSearch.addEventListener('submit', function(event){
         event.preventDefault();
-        
+
         const inputSearch = document.querySelector("#search-hero").value.toLowerCase();
 
         if ( inputSearch == "" ){
@@ -59,11 +59,7 @@ fetch('https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=20
         resultSearch = result.filter(data => data.name.toLowerCase().includes(inputSearch));
 
         if ( resultSearch.length > 0 ){
-            changePage(1);
-            pageNumbers();
-            selectedPage();
-            clickPage();
-            addEventListeners();
+            init();
         }
         else {
             paginationDiv.style.display = "none";
@@ -74,13 +70,18 @@ fetch('https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=20
     });
 
     if ( result ){
-        changePage(1);
-        pageNumbers();
-        selectedPage();
-        clickPage();
-        addEventListeners();
+        init();
     }
 })
 .catch(function(err) { 
     return err;
 });
+
+function init(){
+    changePage(1);
+    pageNumbers();
+    selectedPage();
+    clickPage();
+    addEventListeners();
+    showMore();
+}

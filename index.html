@@ -23,9 +23,9 @@
         <h1>Busca de personagens</h1>
         <h2>Nome do personagem</h2>
         <div class="form-search">
-            <form action="?">
-                <input class="search" placeholder="Search" type="text" id="search-hero" maxlength="35">
-                <div class="icon-search"></div>
+            <form action="?" id="form-search" name="formSearch">
+                <input class="search" autocomplete="off" placeholder="Search" type="text" id="search-hero" maxlength="35">
+                <button type="button" class="icon-search"></button>
             </form>
         </div>
     </section>
@@ -36,46 +36,19 @@
             <span>Séries</span>
             <span>Eventos</span>
         </div>
-        <article class="hero-list">
-            <div class="hero">
-                <span class="hero-photo"><img src="assets/imgs/photo-hero.png" alt=""></span>
-                <span class="hero-name"><h4>Abner Jenkins</h4></span>
-            </div>
-            <div class="hero-series"><p>Iron Man: Armor Wars</p> <p>Old Man Hawkeye </p><p>Fantastic Four Visionaries: Walter Simonson Vol. 1</p></div>
-            <div class="hero-events"><p>AvX </p><p>Demon in the Bottle</p> <p>Dynasty M</p></div>
-        </article>
-
-        <article class="hero-list">
-            <div class="hero">
-                <span class="hero-photo"><img src="assets/imgs/photo-hero.png" alt=""></span>
-                <span class="hero-name"><h4>Abner Jenkins</h4></span>
-            </div>
-            <div class="hero-series"><p>Iron Man: Armor Wars</p> <p>Old Man Hawkeye </p><p>Fantastic Four Visionaries: Walter Simonson Vol. 1</p></div>
-            <div class="hero-events"><p>AvX </p><p>Demon in the Bottle</p> <p>Dynasty M</p></div>
-        </article>
-
-        <article class="hero-list">
-            <div class="hero">
-                <span class="hero-photo"><img src="assets/imgs/photo-hero.png" alt=""></span>
-                <span class="hero-name"><h4>Abner Jenkins</h4></span>
-            </div>
-            <div class="hero-series"><p>Iron Man: Armor Wars</p> <p>Old Man Hawkeye </p><p>Fantastic Four Visionaries: Walter Simonson Vol. 1</p></div>
-            <div class="hero-events"><p>AvX </p><p>Demon in the Bottle</p> <p>Dynasty M</p></div>
-        </article>
+        <div id="js-api-marvel-result"></div>
     </main>
+
     <footer class="footer">
         <div class="pagination">
-            <a href="#" class="nav-left">&laquo;</a>
-            <a href="#" class="nav-left">&#8249;</a>
-            <a href="#" class="page">1</a>
-            <a href="#" class="active">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a class="nav-right" href="#">&#8250;</a>
-            <a class="nav-right" href="#">&raquo;</a>
+            <a class="nav-left" id="button-start">&laquo;</a>
+            <a class="nav-left" id="button-prev">&#8249;</a>
+            <span id="page-number"></span>
+            <a class="nav-right" id="button-next">&#8250;</a>
+            <a class="nav-right" id="button-end">&raquo;</a>
           </div>
-
     </footer>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/pagination.js"></script>
 </body>
 </html>

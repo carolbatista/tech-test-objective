@@ -49,7 +49,7 @@ body {
 }
 
 .header {
-  background: #fff;
+  background: #FFF;
   height: 44px;
   padding: 10px 24px;
   display: flex;
@@ -123,7 +123,7 @@ body {
 .container-top .form-search {
   width: 295px;
   height: 32px;
-  background-color: #fff;
+  background-color: #FFF;
   border-radius: 5px;
 }
 .container-top .form-search .search {
@@ -208,6 +208,9 @@ body {
 .container-hero .hero-list:hover {
   box-shadow: 0px 0px 5px #00000099;
 }
+.container-hero .hero-list-open {
+  height: auto;
+}
 .container-hero .hero-list-container {
   display: flex;
   align-items: center;
@@ -238,11 +241,22 @@ body {
   flex-direction: column;
 }
 .container-hero .hero-completed {
-  display: none;
+  display: flex;
   margin: 10px 0;
 }
 .container-hero .hero-completed h4 {
   font: 16px "pt-sans-bold", sans-serif;
+}
+.container-hero .button-back {
+  width: 63px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: #5DAFFF;
+  color: #F5F5F5;
+  border: none;
+}
+.container-hero .button-back:hover {
+  box-shadow: 0px 0px 5px #00000099;
 }
 @media screen and (max-width: 1024px) {
   .container-hero {
@@ -276,7 +290,7 @@ body {
 }
 
 .footer {
-  background: #fff;
+  background: #FFF;
   display: flex;
   width: 98%;
   height: 70px;
@@ -317,7 +331,7 @@ body {
 .footer .nav-right, .footer .nav-left {
   font-size: 20px !important;
   border: none !important;
-  background-color: #fff !important;
+  background-color: #FFF !important;
 }
 .footer .pagination span a.active {
   background-color: #167ABC;
@@ -326,12 +340,12 @@ body {
   color: #F5F5F5;
 }
 .footer .pagination span a:hover:not(.active) {
-  background-color: #52ace6;
+  background-color: #5DAFFF;
   color: #FFF;
 }
 @media screen and (max-width: 1024px) {
   .footer {
-    background-color: #fff;
+    background-color: #FFF;
     display: flex;
     width: 100%;
     height: 59px;
@@ -346,7 +360,7 @@ body {
   }
 }
 @media screen and (max-width: 1024px) {
-  .footer .pagination span a {
+  .footer .pagination a {
     margin-right: 6px;
     width: 26px;
     height: 29px;
@@ -356,7 +370,7 @@ body {
   .footer .nav-right, .footer .nav-left {
     font-size: 14px !important;
     border: none !important;
-    background-color: #fff !important;
+    background-color: #FFF !important;
   }
 }
 
