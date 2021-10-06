@@ -1,6 +1,6 @@
 #  Teste técnico Objective
 
-Segue o teste técnico para vaga de Junior.
+Segue o teste técnico.
 
 ## Tecnologias utilizadas
 Segue abaixo as tecnologias utilizadas no projeto:
